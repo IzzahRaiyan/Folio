@@ -11,6 +11,14 @@ const authRoutes = require("./routes/authRoutes");
 const entryRoutes = require("./routes/entryRoutes");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
 const app = express();
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 const PORT = process.env.PORT || 5000;
 
 app.use(helmet());
