@@ -9,13 +9,14 @@ function setAuthCookie(res, userId) {
     { expiresIn: "7d" }
   );
 
-  res.cookie("token", token, {
-  httpOnly: true,
-  secure: true,
-  sameSite: "none",
-  maxAge: 7 * 24 * 60 * 60 * 1000,
-  path: "/",
-});
+    res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    path: "/",
+  });
+}
 
 async function signup(req, res, next) {
   try {
