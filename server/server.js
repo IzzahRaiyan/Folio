@@ -51,6 +51,7 @@ async function startServer() {
     process.exit(1);
   }
 }
-
-startServer();
+if (require.main === module) {
+  startServer();
+}
 module.exports = app;
