@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+client/dist/
+server/dist/
+
+# Local test files
+folio-test-cookie.txt
+
+# Editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
