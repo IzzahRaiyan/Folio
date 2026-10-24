@@ -33,6 +33,14 @@ app.use(
 app.use(express.json({ limit: "10kb" }));
 
 app.use(cookieParser());
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/entries", entryRoutes);
